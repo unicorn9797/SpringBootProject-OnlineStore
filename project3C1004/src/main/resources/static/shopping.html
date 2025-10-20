@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Porder Page</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="/css/shopping.css">
+</head>
+
+<body>
+    <header>
+        <h1>歡迎來到 AD4 購物商城</h1>
+        <div id="memberInfo">
+            <span id="memberName"></span>
+            <button id="logoutBtn">登出</button>
+        </div>
+    </header>
+
+    <nav>
+        <a href="cart.html">🛒 購物車</a>
+        <a href="menu.html">🔙 回選單</a>
+    </nav>
+
+    <aside>
+        <h3>商品分類</h3>
+        <select id="category">
+            <option value="">請選擇</option>
+        </select>
+        <hr>
+        <h3>產品清單</h3>
+        <ul id="showProductName"></ul>
+    </aside>
+
+    <main>
+        <div id="productDetail" style="white-space: pre-line;"></div>
+    </main>
+
+    <script src="js/shopping.js"></script>
+</body>
+
+</html>

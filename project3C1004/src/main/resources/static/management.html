@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>購物系統後台管理</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<link rel = "stylesheet" href = "./css/management.css"/>
+</head>
+<body>
+<header>🛒 購物系統後台管理
+ <span id="currentUser" style="float:right; font-size:14px;"></span>
+</header>
+<nav>
+  <button data-card="member" class="active">會員</button>
+  <button data-card="product">產品</button>
+  <button data-card="order">訂單</button>
+  <button data-card="employee">員工</button>  
+</nav>
+<!-- 登出 -->
+<div style="text-align:right; margin:10px;">
+  <span id="currentUser"></span>
+  <button onclick="logout()">登出</button>
+</div>
+
+<!-- 會員 -->
+<div id="member" class="card active">
+  <h2>會員管理</h2>
+ <!--   <input id="mName" placeholder="姓名">
+  <input id="mEmail" placeholder="Email">
+  <input id="mPhone" placeholder="電話">
+  <input id="mAddress" placeholder="地址">
+  <button id="addMemberBtn">新增會員</button>
+ --> 
+  <table id="memberTable">
+  	<thead>
+  		<tr>
+  			<th>ID</th>
+  			<th>姓名</th>
+  			<th>Email</th>
+  			<th>電話</th>
+  			<th>地址</th>
+  			<th>操作</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  	</tbody>
+  </table>
+</div>
+
+<!-- 產品 -->
+<div id="product" class="card">
+  <h2>產品管理</h2>
+  <input id = "cName" placeholder = "分類名稱">
+  <button id = "addCategoryBtn">新增分類</button>
+  <br/>
+  <br/>
+  <input id="pName" placeholder="名稱">
+  <input id="pPrice" type="number" placeholder="價格">
+  <select id="pCategory"></select>
+  <button id="addProductBtn">新增產品</button>
+  <table id="productTable">
+  	<thead>
+  		<tr>
+  			<th>ID</th>
+  			<th>名稱</th>
+  			<th>分類</th>
+  			<th>價格</th>
+  			<th>操作</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  	</tbody>
+  </table>
+</div>
+
+<!-- 訂單 -->
+<div id="order" class="card">
+  <h2>訂單管理</h2>
+  <table id="orderTable">
+  	<thead>
+  		<tr>
+  			<th>ID</th>
+  			<th>會員</th>
+  			<th>總價</th>
+  			<th>日期</th>
+  			<th>操作</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  	</tbody>
+  </table>
+</div>
+
+<!-- 員工 -->
+<!-- 員工自己修改資料按鈕 -->
+<div id="employee" class="card">
+  <h2>員工管理</h2>
+  <button id="editSelfBtn">修改我的資料</button>
+  <br/>
+  <br/>
+  <input id="eName" placeholder="姓名">
+  <input id="eUsername" placeholder="帳號">
+  <input id = "ePassword" type = "password" placeholder= "密碼">
+  <select id="eRole">
+    <option>ADMIN</option>
+    <option>MANAGER</option>
+    <option>STAFF</option>
+  </select>
+  <button id="addEmployeeBtn">新增員工</button>
+  
+  <table id="employeeTable">
+  	<thead>
+  		<tr>
+  			<th>ID</th>
+  			<th>姓名</th>
+  			<th>帳號</th>
+  			<th>角色</th>
+  			<th>操作</th>
+  		</tr>
+  	</thead>
+  	<tbody>
+  	</tbody>
+  </table>
+</div>
+
+<!-- 🔹 修改產品彈出視窗 -->
+<div id="editProductModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>修改產品</h3>
+    <input type="hidden" id="editProductId">
+
+    <label>名稱：</label>
+    <input type="text" id="editProductName" class="form-control"><br>
+
+    <label>分類：</label>
+    <select id="editProductCategory" class="form-control"></select><br>
+
+    <label>價格：</label>
+    <input type="number" id="editProductPrice" class="form-control"><br>
+
+    <label>描述：</label>
+    <textarea id="editProductSpec" rows="3" class="form-control"></textarea><br>
+
+    <button onclick="updateProduct()">💾 儲存</button>
+    <button onclick="closeEditModal()">❌ 取消</button>
+  </div>
+</div>
+<div id="editEmployeeModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>修改員工資料</h3>
+    <input type="hidden" id="editEmployeeId">
+
+    <div id="selfEditArea">
+      <label>姓名：</label>
+      <input type="text" id="editEmployeeName"><br>
+
+      <label>帳號：</label>
+      <input type="text" id="editEmployeeUsername"><br>
+
+      <label>舊密碼：</label>
+      <input type="password" id="editEmployeeOldPassword" placeholder="請輸入舊密碼"><br>
+
+      <label>新密碼（選填）：</label>
+      <input type="password" id="editEmployeePassword" placeholder="若要修改密碼請填"><br>
+    </div>
+
+    <div id="roleEditArea">
+      <label>角色：</label>
+      <select id="editEmployeeRole">
+        <option>ADMIN</option>
+        <option>MANAGER</option>
+        <option>STAFF</option>
+      </select><br>
+    </div>
+
+    <button onclick="updateEmployee()">💾 儲存</button>
+    <button onclick="closeEditEmployeeModal()">❌ 取消</button>
+  </div>
+</div>
+
+<!-- 🔹 查看訂單明細彈出視窗 -->
+<div id="porderDetailModal" class="modal" style="display:none;">
+  <div class="modal-content" style="width:700px;">
+    <h3>訂單明細</h3>
+    <p><strong>訂單編號：</strong><span id="porderDetailOrderId"></span></p>
+
+    <table id="porderDetailTable">
+      <thead>
+        <tr>
+          <th>產品編號</th>
+          <th>產品名稱</th>
+          <th>數量</th>
+          <th>單價</th>
+          <th>小計</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <p style="text-align:right; margin-top:10px;">
+      <strong>總價：</strong><span id="porderDetailTotalPrice"></span>
+    </p>
+    <button onclick="closePorderDetailModal()">❌ 關閉</button>
+  </div>
+</div>
+
+<script src="./js/management.js"></script>
+</body>
+</html>

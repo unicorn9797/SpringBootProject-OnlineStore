@@ -1,0 +1,97 @@
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ }
+
+ body {
+   background: linear-gradient(to right, #f1f1f1, #dfe9f3);
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+ }
+
+ header {
+   text-align: center;
+   padding: 40px 0 10px;
+   background-color: #4a90e2;
+   color: white;
+   font-size: 24px;
+ }
+
+ main {
+   flex: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px;
+ }
+
+ .login-card {
+   background-color: white;
+   padding: 30px 40px;
+   border-radius: 10px;
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+   width: 100%;
+   max-width: 400px;
+ }
+
+ .login-card label {
+   display: block;
+   margin-bottom: 15px;
+   font-size: 16px;
+ }
+
+ .login-card input {
+   width: 100%;
+   padding: 10px;
+   font-size: 14px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   margin-top: 5px;
+ }
+
+ .login-card button {
+   width: 100%;
+   padding: 12px;
+   background-color: #4a90e2;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   font-size: 16px;
+   margin-top: 10px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+ }
+
+ .login-card button:hover {
+   background-color: #357abd;
+ }
+
+ .add_btn {
+   display: block;
+   text-align: center;
+   margin-top: 15px;
+   color: #4a90e2;
+   text-decoration: underline;
+   cursor: pointer;
+ }
+
+ .add_btn:hover {
+   color: darkred;
+ }
+
+ footer {
+   text-align: center;
+   background-color: #333;
+   color: white;
+   padding: 15px 0;
+   font-size: 14px;
+ }
+
+ @media (max-width: 480px) {
+   .login-card {
+     padding: 20px;
+   }
+ }

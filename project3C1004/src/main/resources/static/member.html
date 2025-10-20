@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="utf-8">
+  <title>會員資料</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <link rel="stylesheet" href="/css/member.css">
+</head>
+
+<body>
+  <header>
+    <h1>會員資料</h1>
+  </header>
+
+  <main>
+    <div class="form-container">
+      <label>姓名:
+        <input type="text" id="uname">
+      </label>
+      <label>手機:
+        <input type="text" id="uphone">
+      </label>
+      <label>密碼:
+        <input type="password" id="upassword">
+      </label>
+      <label>地址:
+        <input type="text" id="uaddress">
+      </label>
+      <label>Email:
+        <input type="text" id="uemail">
+      </label>
+      <div id="errorBox" class="error-msg"></div>
+      <div class="btn-group">
+        <button id="send_btn">送出</button>
+        <button id="back_btn">返回</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    Copyright © 2025 AD4 Group
+  </footer>
+
+  <script src="js/member.js"></script>
+</body>
+
+</html>

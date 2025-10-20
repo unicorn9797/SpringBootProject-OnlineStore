@@ -1,0 +1,27 @@
+body { font-family: "Microsoft JhengHei"; background:#f5f7fa; margin:0; }
+header { background:#1e3a8a; color:#fff; padding:15px 20px; font-size:20px; }
+nav { background:#3b82f6; display:flex; }
+nav button { flex:1; border:none; background:none; color:white; padding:12px; font-size:16px; cursor:pointer; transition:.3s; }
+nav button:hover, nav button.active { background:#2563eb; }
+.card { display:none; padding:20px; margin:20px; background:white; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,.1); }
+.card.active { display:block; }
+h2 { margin-top:0; }
+input, select, textarea { padding:5px; margin:5px; }
+button.action { padding:5px 10px; cursor:pointer; }
+table { width:100%; border-collapse:collapse; margin-top:10px; }
+table, th, td { border:1px solid #ccc; }
+th, td { padding:8px; text-align:left; }
+th { background:#e5e7eb; }
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}

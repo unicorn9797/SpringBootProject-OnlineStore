@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f4f6f8;
+}
+
+header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    position: relative;
+}
+
+#memberInfo {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#logoutBtn {
+    background-color: crimson;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#logoutBtn:hover {
+    background-color: darkred;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #e07b39;
+    padding: 10px 20px;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+aside {
+    width: 200px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 130px;
+    bottom: 0;
+    overflow-y: auto;
+}
+
+main {
+    margin-left: 220px;
+    padding: 30px;
+    flex-grow: 1;
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#category {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 10px;
+}
+
+li {
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: underline;
+    margin: 6px 0;
+}
+
+li:hover {
+    color: #d62828;
+}
+
+#productDetail {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+}
+
+#productImage {
+    flex: 1 1 300px;
+    max-width: 400px;
+}
+
+#productImage img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+#productInfo {
+    flex: 2 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#buyForm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#buyForm input[type="number"] {
+    width: 60px;
+    padding: 5px;
+}
+
+#buyForm input[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#buyForm input[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+
+@media (max-width: 768px) {
+    aside {
+        position: relative;
+        width: 100%;
+        top: unset;
+        box-shadow: none;
+        margin-bottom: 20px;
+    }
+
+    main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    #productDetail {
+        max-width: 100%;
+    }
+}

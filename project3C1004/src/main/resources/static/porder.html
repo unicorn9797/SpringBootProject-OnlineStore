@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Porder Page</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="/css/porder.css">
+</head>
+
+<body>
+    <header>
+        <h1>Order Record</h1><br>
+        <div id="memberInfo">
+            <span id="memberName"></span>
+            <button id="logoutBtn">登出</button>
+        </div>
+    </header>
+    <nav>
+        <a href="menu.html">回選單</a>
+    </nav>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>訂單編號</th>
+                    <th>會員</th>
+                    <th>總金額</th>
+                    <th>日期時間</th>
+                    <th>備註</th>
+                </tr>
+            </thead>
+            <tbody id="showPorder"></tbody>
+        </table>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>產品名稱</th>
+                    <th>單項金額</th>
+                    <th>數量</th>
+                </tr>
+            </thead>
+            <tbody id="showRecord"></tbody>
+        </table>
+
+
+    </main>
+    <aside>
+
+        <h3>訂單編號:</h3>
+        <div>
+            <ol id="list"></ol>
+        </div>
+
+    </aside>
+
+    <script src="js/porder.js"></script>
+
+</body>
+
+</html>

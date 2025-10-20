@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Cart</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+   <link rel="stylesheet" href="/css/cart.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>My Cart_Detail</h1><br>
+        <div id="memberInfo">
+            <span id="memberName"></span>
+            <button id="logoutBtn">登出</button>
+        </div>
+    </header>
+    <nav>
+        <a href="shopping.html">繼續購物&nbsp</a> <a href="menu.html">&nbsp回選單</a>
+    </nav>
+   <main>
+    <table border="1" id="cartTable">
+        <thead>
+            <tr>
+                <th>產品ID</th>
+                <th>產品名稱</th>
+                <th>單品金額</th>
+                <th>數量</th>
+                <th colspan="2">操作</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <p id="totalPrice">總金額：$0</p>
+
+    <label for="remarkInput">備註：</label>
+    <input type="text" id="remarkInput" placeholder="請輸入訂單備註（選填）">
+
+    <div>
+        <button id="clearCart">清空購物車</button>
+        <button id="savePorder">送出訂單</button>
+    </div>
+
+    <div id="show"></div>
+</main>
+
+    <script src="js/cart.js"></script>
+
+</body>
+
+</html>
